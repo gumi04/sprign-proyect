@@ -33,6 +33,7 @@ With the application up and running go to: <http://localhost:8080/api/swagger-ui
 
 With the application up and running go to: <http://localhost:8080/h2-console>
 
+![swagger](https://github.com/capgemini-salvgonz/stub-products-api/blob/development/swagger-ui.png)
 
 
 
