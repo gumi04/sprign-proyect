@@ -29,11 +29,12 @@ Then go to <http://localhost:8080/>
 
 With the application up and running go to: <http://localhost:8080/api/swagger-ui.html>
 
+![swagger](https://github.com/capgemini-salvgonz/stub-products-api/blob/development/swagger-ui.png)
+
 ## In memory console
 
 With the application up and running go to: <http://localhost:8080/h2-console>
 
-![swagger](https://github.com/capgemini-salvgonz/stub-products-api/blob/development/swagger-ui.png)
-
+![h2-console](https://github.com/capgemini-salvgonz/stub-products-api/blob/development/H2-console.png)
 
 
