@@ -25,7 +25,7 @@
 * Fecha de creación: Mar 13, 2021 
 */
 
-package com.tocode.mx;
+package com.coppel.mx;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

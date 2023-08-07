@@ -25,7 +25,7 @@
 * Fecha de creación: Mar 13, 2021 
 */
 
-package com.tocode.mx.infraestructure;
+package com.coppel.mx.infraestructure;
 
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -33,7 +33,6 @@ import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.Contact;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
@@ -58,11 +57,7 @@ public class ApplicationConfiguration implements WebMvcConfigurer {
   /** The allow origin. */
   @Value("{allow.origin}")
   private String allowOrigin;
-  
-  /** The allow methods. */
-  @Value("allow.methods")
-  private String allowMethods;
-  
+
   /** The allow mapping. */
   @Value("allow.mapping")
   private String allowMapping;
@@ -118,12 +113,12 @@ public class ApplicationConfiguration implements WebMvcConfigurer {
    * @return the api info
    */
   ApiInfo apiInfo() {
-    return new ApiInfoBuilder().title("Stub Products API")
+    return new ApiInfoBuilder().title("Coppel API")
         .description(
-            "This API is intended to respond basic HTTP method over a single resource: Product")
-        .license("No license").termsOfServiceUrl("Free use")
+            "Java application for microservices")
+        .license("Apache License Version 2.0").termsOfServiceUrl("https://www.apache.org/licenses/LICENSE-2.0")
         .version("V 1.0")
-        .contact(new Contact("2code.com.mx", "2code.com.mx", "chava.gnolasco@gmail.com"))
+        .contact(new Contact("coppel.com", "https://www.coppel.com/", "atencion@coppel.com"))
         .build();
   }
 
@@ -143,7 +138,7 @@ public class ApplicationConfiguration implements WebMvcConfigurer {
         .directModelSubstitute(java.time.ZonedDateTime.class, Date.class)
         .directModelSubstitute(java.time.LocalDateTime.class, Date.class)
         .useDefaultResponseMessages(false);
-    docket = docket.select().apis(RequestHandlerSelectors.basePackage("com.tocode.mx")).build();
+    docket = docket.select().apis(RequestHandlerSelectors.basePackage("com.coppel.mx")).build();
     return docket;
   }
 

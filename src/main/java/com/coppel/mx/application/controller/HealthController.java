@@ -25,7 +25,7 @@
 * Fecha de creación: Mar 13, 2021 
 */
 
-package com.tocode.mx.application.controller;
+package com.coppel.mx.application.controller;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
