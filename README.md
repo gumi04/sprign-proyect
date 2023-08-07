@@ -1,9 +1,19 @@
-# Stub - Products-API
+# Coppel API
 
 
-Since during a learnign phase of a new Front-end framework such as : Angular, React, Vue, etc. nowadays it is almost mandatory interact with Rest services, this project was created to interact with a group of Stub REST services that can be deployed without more dependencies than this single component as a fat jar created with springboot. Having said that, this component can be used during a training and avoid the need of a backend services, a deployment platform or a database. 
+Coppel API project}
 
-## Dependencies 
+
+## Table of contents
+
+- [Dependencies](#dependencies)
+- [Compilation](#compilation)
+- [Running It](#running-it)
+- [Rest API documentation](#rest-api-documentation)
+
+
+
+## Dependencies
 
 If this project is used within an IDE (i.n. Eclipse, STS, Intellij, etc) it is necessary to install lombok before to import the project. [Lombok page](https://projectlombok.org/).
 
@@ -29,12 +39,5 @@ Then go to <http://localhost:8080/>
 
 With the application up and running go to: <http://localhost:8080/api/swagger-ui.html>
 
-![swagger](https://github.com/capgemini-salvgonz/stub-products-api/blob/development/swagger-ui.png)
-
-## In memory database console
-
-With the application up and running go to: <http://localhost:8080/h2-console>
-
-![h2-console](https://github.com/capgemini-salvgonz/stub-products-api/blob/development/H2-console.png)
 
 
