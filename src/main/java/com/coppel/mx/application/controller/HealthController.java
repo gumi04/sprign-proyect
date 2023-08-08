@@ -27,12 +27,12 @@
 
 package com.coppel.mx.application.controller;
 
-import com.coppel.mx.model.dto.SumaDto;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
 
@@ -59,12 +59,6 @@ public class HealthController {
   @GetMapping(value = "/health")
   public ResponseEntity<String> health() {
     return new ResponseEntity<String>(MESSAGE, HttpStatus.OK);
-  }
-
-  @ApiOperation(value = "Suma dos numero")
-  @PostMapping("/suma")
-  public ResponseEntity<Integer> sum(@RequestBody @Valid SumaDto obj){
-    return ResponseEntity.ok(obj.getNumero1() + obj.getNumero2()) ;
   }
 
 }

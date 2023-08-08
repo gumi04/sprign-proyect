@@ -43,6 +43,6 @@ public class BusinessRuleException extends RuntimeException {
    * @param message the message of the exception
    */
   public BusinessRuleException(final String message) {
-    super("Occurrio un error de negocio -> " + message + ".");
+    super("A business error occurred -> " + message + ".");
   }
 }

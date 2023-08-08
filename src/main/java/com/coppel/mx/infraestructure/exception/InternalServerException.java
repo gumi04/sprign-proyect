@@ -45,6 +45,6 @@ public class InternalServerException extends RuntimeException {
    *
    */
   public InternalServerException(final String message) {
-    super("Ocurrio un error al realizar el proceso -> " + message + ".");
+    super("An error occurred during the process -> " + message + ".");
   }
 }

@@ -27,13 +27,10 @@
 
 package com.coppel.mx.infraestructure.exception;
 
-
 import com.coppel.mx.model.dto.ErrorMessageDefaultDto;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
-import org.springframework.validation.FieldError;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.MissingPathVariableException;
@@ -47,9 +44,9 @@ import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
 import javax.servlet.http.HttpServletRequest;
+
 import java.nio.file.AccessDeniedException;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
