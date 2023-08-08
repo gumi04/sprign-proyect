@@ -78,12 +78,12 @@ public class ExceptionHandlerController {
    */
   @ResponseStatus(HttpStatus.BAD_REQUEST)
   @ExceptionHandler({
-      HttpRequestMethodNotSupportedException.class,
-      MissingPathVariableException.class,
-      MissingRequestHeaderException.class,
-      MissingServletRequestParameterException.class,
-      MethodArgumentTypeMismatchException.class,
-      HttpMessageNotReadableException.class})
+            HttpRequestMethodNotSupportedException.class,
+            MissingPathVariableException.class,
+            MissingRequestHeaderException.class,
+            MissingServletRequestParameterException.class,
+            MethodArgumentTypeMismatchException.class,
+            HttpMessageNotReadableException.class})
   @ResponseBody
   public ErrorMessageDefaultDto badRequest(HttpServletRequest request, Exception exception) {
     return new ErrorMessageDefaultDto(exception, request.getRequestURI());
@@ -98,9 +98,9 @@ public class ExceptionHandlerController {
   @ResponseStatus(HttpStatus.BAD_REQUEST)
   @ExceptionHandler(MethodArgumentNotValidException.class)
   @ResponseBody
-  public ErrorMessageDefaultDto badRequestValid(HttpServletRequest request, MethodArgumentNotValidException  exception) {
+  public ErrorMessageDefaultDto badRequestValid(HttpServletRequest request, MethodArgumentNotValidException exception) {
     Map<String, String> mapErros = new HashMap<>();
-    exception.getBindingResult().getFieldErrors().forEach((error) ->{
+    exception.getBindingResult().getFieldErrors().forEach((error) -> {
       String fielName = error.getField();
       String message = error.getDefaultMessage();
       mapErros.put(fielName, message);
@@ -118,7 +118,7 @@ public class ExceptionHandlerController {
    */
   @ResponseStatus(HttpStatus.FORBIDDEN)
   @ExceptionHandler({
-     AccessDeniedException.class
+            AccessDeniedException.class
   })
   @ResponseBody
   public ErrorMessageDefaultDto forbiddenRequest(HttpServletRequest request, Exception exception) {
@@ -135,9 +135,9 @@ public class ExceptionHandlerController {
    */
   @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
   @ExceptionHandler({
-      Exception.class,
-      BusinessRuleException.class,
-      InternalServerException.class
+            Exception.class,
+            BusinessRuleException.class,
+            InternalServerException.class
   })
   @ResponseBody
   public ErrorMessageDefaultDto fatalError(HttpServletRequest request, Exception exception) {
