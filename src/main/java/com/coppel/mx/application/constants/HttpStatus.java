@@ -35,37 +35,37 @@ public class HttpStatus {
   /**
    * The constant OK.
    */
-  public static final int OK = 200;
+  public static final String OK = "200";
 
   /**
    * The constant BAD_REQUEST.
    */
-  public static final int BAD_REQUEST = 400;
+  public static final String BAD_REQUEST = "400";
 
   /**
    * The constant UNAUTHORIZED.
    */
-  public static final int UNAUTHORIZED = 401;
+  public static final String UNAUTHORIZED = "401";
 
   /**
    * The constant FORBIDDEN.
    */
-  public static final int FORBIDDEN = 403;
+  public static final String FORBIDDEN = "403";
 
   /**
    * The constant NOT_FOUND.
    */
-  public static final int NOT_FOUND = 404;
+  public static final String NOT_FOUND = "404";
 
   /**
    * The constant MANY_REQUEST.
    */
-  public static final int MANY_REQUEST = 429;
+  public static final String MANY_REQUEST = "429";
 
   /**
    * The constant SERVER_ERROR.
    */
-  public static final int SERVER_ERROR = 500;
+  public static final String SERVER_ERROR = "500";
 
   /**
    * Instantiates a new Http status.

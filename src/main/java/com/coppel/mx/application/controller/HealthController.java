@@ -27,8 +27,8 @@
 
 package com.coppel.mx.application.controller;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,10 +38,9 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * The Class HealthController.
  */
-@Api(
-        value = "Health API",
-        description = "A service that gives information about service status",
-        tags = {"Health"})
+@Tag(
+        name = "Health API",
+        description = "A service that gives information about service status")
 @RestController
 public class HealthController {
 
@@ -55,7 +54,7 @@ public class HealthController {
    *
    * @return the response entity
    */
-  @ApiOperation(value = "Check health")
+  @Operation(summary = "Check health")
   @GetMapping(value = "/health")
   public ResponseEntity<String> health() {
     return new ResponseEntity<>(MESSAGE, HttpStatus.OK);

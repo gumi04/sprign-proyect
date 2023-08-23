@@ -32,11 +32,14 @@ import com.coppel.mx.application.service.SiTelefonosActualService;
 import com.coppel.mx.model.dto.input.EvaluateContactDto;
 import com.coppel.mx.model.dto.output.ErrorMessageDefaultDto;
 import com.coppel.mx.model.dto.output.ResponseEvaluateContactDto;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
 import javax.validation.Valid;
+
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -51,10 +54,9 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * The Class HealthController.
  */
-@Api(
-        value = "ContactPoint",
-        description = "Evaluate contact point",
-        tags = {"ContactPoint"})
+@Tag(
+          name = "ContactPoint",
+          description = "Evaluate contact point")
 @RestController
 @RequestMapping("/PartyReferenceDataDirectory")
 @CrossOrigin
@@ -71,26 +73,20 @@ public class ContactPointController {
    * @param contactDto        the contact dto
    * @return the contact validation
    */
-  @ApiOperation(code = HttpStatus.OK, value = "Evaluate the veracity of a means of contact",
-          produces = MediaType.APPLICATION_JSON_VALUE)
-  @ApiResponses(value = {
-          @ApiResponse(code = HttpStatus.OK, message = "OK", response = ResponseEvaluateContactDto.class),
-          @ApiResponse(code = HttpStatus.BAD_REQUEST, message = "Bad Request",
-                  response = ErrorMessageDefaultDto.class),
-          @ApiResponse(code = HttpStatus.UNAUTHORIZED, message = "Unauthorized",
-                  response = ErrorMessageDefaultDto.class),
-          @ApiResponse(code = HttpStatus.FORBIDDEN, message = "Forbidden", response = ErrorMessageDefaultDto.class),
-          @ApiResponse(code = HttpStatus.NOT_FOUND, message = "NotFound", response = ErrorMessageDefaultDto.class),
-          @ApiResponse(code = HttpStatus.MANY_REQUEST, message = "Too many request",
-                  response = ErrorMessageDefaultDto.class),
-          @ApiResponse(code = HttpStatus.SERVER_ERROR, message = "Internal Server Error",
-                  response = ErrorMessageDefaultDto.class)
+  @Operation(summary = "Evaluate the veracity of a means of contact")
+  @ApiResponses({
+            @ApiResponse(responseCode = HttpStatus.OK, description = "OK", content = {@Content(schema = @Schema(implementation = ResponseEvaluateContactDto.class), mediaType = MediaType.APPLICATION_JSON_VALUE)}),
+            @ApiResponse(responseCode = HttpStatus.BAD_REQUEST, description = "Bad Request", content = {@Content(schema = @Schema(implementation = ErrorMessageDefaultDto.class), mediaType = MediaType.APPLICATION_JSON_VALUE)}),
+            @ApiResponse(responseCode = HttpStatus.UNAUTHORIZED, description = "Unauthorized", content = {@Content(schema = @Schema(implementation = ErrorMessageDefaultDto.class), mediaType = MediaType.APPLICATION_JSON_VALUE)}),
+            @ApiResponse(responseCode = HttpStatus.FORBIDDEN, description = "Forbidden", content = {@Content(schema = @Schema(implementation = ErrorMessageDefaultDto.class), mediaType = MediaType.APPLICATION_JSON_VALUE)}),
+            @ApiResponse(responseCode = HttpStatus.NOT_FOUND, description = "NotFound", content = {@Content(schema = @Schema(implementation = ErrorMessageDefaultDto.class), mediaType = MediaType.APPLICATION_JSON_VALUE)}),
+            @ApiResponse(responseCode = HttpStatus.MANY_REQUEST, description = "Too many request", content = {@Content(schema = @Schema(implementation = ErrorMessageDefaultDto.class), mediaType = MediaType.APPLICATION_JSON_VALUE)}),
+            @ApiResponse(responseCode = HttpStatus.SERVER_ERROR, description = "Internal Server Error", content = {@Content(schema = @Schema(implementation = ErrorMessageDefaultDto.class), mediaType = MediaType.APPLICATION_JSON_VALUE)}),
   })
   @PostMapping(value = "/ContactPoint/Evaluate", produces = MediaType.APPLICATION_JSON_VALUE)
   @ResponseStatus(value = org.springframework.http.HttpStatus.OK)
   public ResponseEntity<ResponseEvaluateContactDto> evalueteContact(
-          final @RequestHeader String consumerRequestId, final @RequestBody @Valid EvaluateContactDto contactDto) {
-
+            final @RequestHeader String consumerRequestId, final @RequestBody @Valid EvaluateContactDto contactDto) {
     return ResponseEntity.ok(siTelefonosActualService.evaluateContactPoint(contactDto));
   }
 }
