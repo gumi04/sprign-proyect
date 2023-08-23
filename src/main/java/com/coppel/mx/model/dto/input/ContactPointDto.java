@@ -20,45 +20,43 @@
  * any other work released this way by its authors.  You can apply it to
  * your programs, too.
  *
- * Nombre de archivo: HealthController.java
- * Autor: salvgonz
- * Fecha de creación: Mar 13, 2021
+ * Nombre de archivo: ContactPointDto.java
+ * Autor: gumaro
+ * Fecha de creación: Ago 17, 2023
  */
 
-package com.coppel.mx.application.controller;
+package com.coppel.mx.model.dto.input;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import lombok.Getter;
+import lombok.Setter;
 
+import javax.validation.constraints.NotNull;
 
 /**
- * The Class HealthController.
+ * The class Contact point dto.
  */
-@Api(
-        value = "Health API",
-        description = "A service that gives information about service status",
-        tags = {"Health"})
-@RestController
-public class HealthController {
+@Getter
+@Setter
+public class ContactPointDto {
 
   /**
-   * The Constant MESSAGE.
+   * The Contact point value.
    */
-  private static final  String MESSAGE = "SERVICE UP.";
-
+  @NotNull
+  private String contactPointValue;
   /**
-   * Health.
-   *
-   * @return the response entity
+   * The Contact point type.
    */
-  @ApiOperation(value = "Check health")
-  @GetMapping(value = "/health")
-  public ResponseEntity<String> health() {
-    return new ResponseEntity<>(MESSAGE, HttpStatus.OK);
-  }
-
+  @NotNull
+  private String contactPointType;
+  /**
+   * The Contact point detail.
+   */
+  @NotNull
+  private String contactPointDetail;
+  /**
+   * The Contact point status.
+   */
+  @NotNull
+  private String contactPointStatus;
 }

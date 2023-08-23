@@ -35,7 +35,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import lombok.extern.slf4j.Slf4j;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -50,10 +50,10 @@ import org.springframework.test.web.servlet.MvcResult;
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
-@AutoConfigureWireMock(port = 9999)
+@AutoConfigureWireMock(port = 0)
 @AutoConfigureMockMvc
 @Slf4j
-public class HealthControllerTest {
+class HealthControllerTest {
 
   /**
    * The Constant MESSAGE.
@@ -79,7 +79,7 @@ public class HealthControllerTest {
    * @throws Exception
    */
   @Test
-  public void healthCheckTest() throws Exception {
+  void healthCheckTest() throws Exception {
     log.info("healthcheck");
 
     String productApi = "/health";

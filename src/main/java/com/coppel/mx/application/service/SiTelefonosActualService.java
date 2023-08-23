@@ -20,45 +20,26 @@
  * any other work released this way by its authors.  You can apply it to
  * your programs, too.
  *
- * Nombre de archivo: HealthController.java
- * Autor: salvgonz
- * Fecha de creación: Mar 13, 2021
+ * Nombre de archivo: SiTelefonosActualService.java
+ * Autor: gumaro
+ * Fecha de creación: Ago 17, 2023
  */
 
-package com.coppel.mx.application.controller;
+package com.coppel.mx.application.service;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
-
+import com.coppel.mx.model.dto.input.EvaluateContactDto;
+import com.coppel.mx.model.dto.output.ResponseEvaluateContactDto;
 
 /**
- * The Class HealthController.
+ * The interface Si telefonos actual service.
  */
-@Api(
-        value = "Health API",
-        description = "A service that gives information about service status",
-        tags = {"Health"})
-@RestController
-public class HealthController {
+public interface SiTelefonosActualService {
 
   /**
-   * The Constant MESSAGE.
-   */
-  private static final  String MESSAGE = "SERVICE UP.";
-
-  /**
-   * Health.
+   * Evaluate if a contact point exist in the DB.
    *
-   * @return the response entity
+   * @param contact the contact of the search
+   * @return the response evaluate contact
    */
-  @ApiOperation(value = "Check health")
-  @GetMapping(value = "/health")
-  public ResponseEntity<String> health() {
-    return new ResponseEntity<>(MESSAGE, HttpStatus.OK);
-  }
-
+  ResponseEvaluateContactDto evaluateContactPoint(final EvaluateContactDto contact);
 }

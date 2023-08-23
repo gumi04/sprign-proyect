@@ -20,45 +20,40 @@
  * any other work released this way by its authors.  You can apply it to
  * your programs, too.
  *
- * Nombre de archivo: HealthController.java
- * Autor: salvgonz
- * Fecha de creación: Mar 13, 2021
+ * Nombre de archivo: ResponseCurrentPhonesDto.java
+ * Autor: gumaro
+ * Fecha de creación: Ago 17, 2023
  */
 
-package com.coppel.mx.application.controller;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+package com.coppel.mx.model.dto.output;
 
+import lombok.Getter;
+import lombok.Setter;
+
+import java.math.BigInteger;
 
 /**
- * The Class HealthController.
+ * The class Response current phones dto.
  */
-@Api(
-        value = "Health API",
-        description = "A service that gives information about service status",
-        tags = {"Health"})
-@RestController
-public class HealthController {
+@Getter
+@Setter
+public class ResponseCurrentPhonesDto {
 
   /**
-   * The Constant MESSAGE.
+   * The Id.
    */
-  private static final  String MESSAGE = "SERVICE UP.";
-
+  private BigInteger id;
   /**
-   * Health.
-   *
-   * @return the response entity
+   * The Type tel.
    */
-  @ApiOperation(value = "Check health")
-  @GetMapping(value = "/health")
-  public ResponseEntity<String> health() {
-    return new ResponseEntity<>(MESSAGE, HttpStatus.OK);
-  }
-
+  private String typeTel;
+  /**
+   * The Phone.
+   */
+  private String phone;
+  /**
+   * The Status tel.
+   */
+  private String statusTel;
 }

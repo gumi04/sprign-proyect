@@ -25,65 +25,53 @@
  * Fecha de creación: Ago 08, 2023
  */
 
-package com.coppel.mx.model.dto;
-
-import com.fasterxml.jackson.annotation.JsonInclude;
+package com.coppel.mx.model.dto.output;
 
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
-
-import java.util.Map;
 
 /**
  * The class Error message default.
  */
 @Getter
 @Setter
-@ToString
-@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ErrorMessageDefaultDto {
 
   /**
-   * The name of the exception.
+   * The status of the response.
    */
-  private String exceptionName;
+  private String status;
+
+  /**
+   * The status code of the response.
+   */
+  private String statusCode;
+
   /**
    * The Message of the exception.
    */
   private String message;
-  /**
-   * The Path of the controller.
-   */
-  private String path;
 
   /**
-   * Map with the erros of validation.
+   * Instantiates a new Error message default dto.
    */
-  private Map<String, String> erros;
+  public ErrorMessageDefaultDto() {
+
+  }
+
 
   /**
    * Instantiates a new Error message default.
    *
-   * @param exception the exception
-   * @param path      the path
+   * @param status     the status
+   * @param statusCode the status code
+   * @param message    the message
    */
-  public ErrorMessageDefaultDto(Exception exception, String path) {
-    this.exceptionName = exception.getClass().getSimpleName();
-    this.message = exception.getMessage();
-    this.path = path;
+  public ErrorMessageDefaultDto(String status, String statusCode, String message) {
+    this.status = status;
+    this.statusCode = statusCode;
+    this.message = message;
   }
 
-  /**
-   * Instantiates a new Error message default.
-   *
-   * @param exception the exception
-   * @param path      the path
-   * @param mapErrors the errors of validation
-   */
-  public ErrorMessageDefaultDto(Exception exception, String path, Map<String, String> mapErrors) {
-    this.exceptionName = exception.getClass().getSimpleName();
-    this.path = path;
-    this.erros = mapErrors;
-  }
+
 }

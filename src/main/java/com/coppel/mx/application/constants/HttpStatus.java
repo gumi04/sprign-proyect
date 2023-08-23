@@ -20,45 +20,57 @@
  * any other work released this way by its authors.  You can apply it to
  * your programs, too.
  *
- * Nombre de archivo: HealthController.java
- * Autor: salvgonz
- * Fecha de creación: Mar 13, 2021
+ * Nombre de archivo: HttpStatus.java
+ * Autor: gumaro
+ * Fecha de creación: Ago 17, 2023
  */
 
-package com.coppel.mx.application.controller;
-
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
-
+package com.coppel.mx.application.constants;
 
 /**
- * The Class HealthController.
+ * The class Http status.
  */
-@Api(
-        value = "Health API",
-        description = "A service that gives information about service status",
-        tags = {"Health"})
-@RestController
-public class HealthController {
+public class HttpStatus {
 
   /**
-   * The Constant MESSAGE.
+   * The constant OK.
    */
-  private static final  String MESSAGE = "SERVICE UP.";
+  public static final int OK = 200;
 
   /**
-   * Health.
-   *
-   * @return the response entity
+   * The constant BAD_REQUEST.
    */
-  @ApiOperation(value = "Check health")
-  @GetMapping(value = "/health")
-  public ResponseEntity<String> health() {
-    return new ResponseEntity<>(MESSAGE, HttpStatus.OK);
+  public static final int BAD_REQUEST = 400;
+
+  /**
+   * The constant UNAUTHORIZED.
+   */
+  public static final int UNAUTHORIZED = 401;
+
+  /**
+   * The constant FORBIDDEN.
+   */
+  public static final int FORBIDDEN = 403;
+
+  /**
+   * The constant NOT_FOUND.
+   */
+  public static final int NOT_FOUND = 404;
+
+  /**
+   * The constant MANY_REQUEST.
+   */
+  public static final int MANY_REQUEST = 429;
+
+  /**
+   * The constant SERVER_ERROR.
+   */
+  public static final int SERVER_ERROR = 500;
+
+  /**
+   * Instantiates a new Http status.
+   */
+  private HttpStatus() {
+
   }
-
 }
