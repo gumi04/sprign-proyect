@@ -32,6 +32,9 @@ import lombok.Setter;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
+/**
+ * The class Constants.
+ */
 @Component
 @PropertySource("classpath:application-${spring.profiles.active}.properties")
 @Getter
@@ -39,6 +42,9 @@ import org.springframework.stereotype.Component;
 public class Constants {
 
 
+  /**
+   * Instantiates a new Constants.
+   */
   public Constants() {
 
   }
