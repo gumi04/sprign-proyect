@@ -20,41 +20,26 @@
  * any other work released this way by its authors.  You can apply it to
  * your programs, too.
  *
- * Nombre de archivo: EvaluateContactDto.java
+ * Nombre de archivo: Constants.java
  * Autor: gumaro
- * Fecha de creación: Ago 17, 2023
+ * Fecha de creación: agosto 24, 2023
  */
 
-package com.coppel.mx.model.dto.input;
-
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
+package com.coppel.mx.application.constants;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.stereotype.Component;
 
-/**
- * The class Evaluate contact dto.
- */
+@Component
+@PropertySource("classpath:application-${spring.profiles.active}.properties")
 @Getter
 @Setter
-public class EvaluateContactDto {
+public class Constants {
 
-  /**
-   * The Contact point.
-   */
-  @Valid
-  @NotNull
-  private ContactPointDto contactPoint;
-  /**
-   * The Country.
-   */
-  @Valid
-  @NotNull
-  private CountryDto country;
-  /**
-   * The Source channel.
-   */
-  @NotNull
-  private String sourceChannel;
+
+  public Constants() {
+
+  }
 }

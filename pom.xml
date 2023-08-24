@@ -10,7 +10,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.7.14</version>
+        <version>3.0.0</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -18,17 +18,27 @@
         <java.version>17</java.version>
 
         <!-- Dependencies version -->
-        <spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
+        <spring-cloud.version>2020.0.1</spring-cloud.version>
         <javax-validation.version>2.0.1.Final</javax-validation.version>
+        <commons-lang.version>2.6</commons-lang.version>
+        <sonar-jacoco-listeners.version>3.2</sonar-jacoco-listeners.version>
 
-        <!-- swagger -->
-        <swagger.version>2.9.2</swagger.version>
+        <!-- Dependencies test -->
+        <spring-cloud-wiremock>4.0.0</spring-cloud-wiremock>
+        <spring-cloud-stub-runner>4.0.0</spring-cloud-stub-runner>
+        <junit.version>5.0.0-ALPHA</junit.version>
+        <jmockit.version>1.49</jmockit.version>
+
+        <!-- spring doc -->
+        <spring.doc.version>2.0.2</spring.doc.version>
 
         <!-- Encoding -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <!-- Plugins version -->
         <compiler-plugin.version>3.6.1</compiler-plugin.version>
+        <jacoco.plugin.version>0.8.7</jacoco.plugin.version>
+
 
     </properties>
 
@@ -60,21 +70,16 @@
         <dependency>
             <groupId>commons-lang</groupId>
             <artifactId>commons-lang</artifactId>
-            <version>2.6</version>
+            <version>${commons-lang.version}</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
         <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger2</artifactId>
-            <version>${swagger.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger-ui</artifactId>
-            <version>${swagger.version}</version>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+            <version>${spring.doc.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -93,15 +98,28 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-contract-wiremock</artifactId>
-            <version>1.2.4.RELEASE</version>
+            <version>${spring-cloud-wiremock}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-contract-stub-runner</artifactId>
-            <version>1.2.4.RELEASE</version>
+            <version>${spring-cloud-stub-runner}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.jmockit</groupId>
+            <artifactId>jmockit</artifactId>
+            <version>${jmockit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit</groupId>
+            <artifactId>junit5-engine</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
@@ -110,7 +128,7 @@
         <dependency>
             <groupId>org.codehaus.sonar-plugins.java</groupId>
             <artifactId>sonar-jacoco-listeners</artifactId>
-            <version>3.2</version>
+            <version>${sonar-jacoco-listeners.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -149,7 +167,7 @@
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.7</version>
+                <version>${jacoco.plugin.version}</version>
                 <configuration>
                     <excludes>
                         <exclude>com/coppel/mx/infraestructure/**</exclude>
@@ -174,5 +192,4 @@
         </plugins>
         <finalName>${project.artifactId}</finalName>
     </build>
-
 </project>

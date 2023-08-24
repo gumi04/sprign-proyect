@@ -20,15 +20,15 @@
  * any other work released this way by its authors.  You can apply it to
  * your programs, too.
  *
- * Nombre de archivo: SiTelefonosActualMapperTest.class
+ * Nombre de archivo: SiTelefonosActualMapperTest.java
  * Autor: 319207
  * Fecha de creación: agosto 17, 2023
  */
 
 package com.coppel.mx.model.mapper;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import com.coppel.mx.model.dto.output.ResponseCurrentPhonesDto;
 import com.coppel.mx.model.entity.SiTelefonosActual;

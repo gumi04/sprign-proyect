@@ -28,10 +28,11 @@
 
 package com.coppel.mx.model.dto.input;
 
+
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.validation.constraints.NotNull;
 
 /**
  * The class Country dto.
